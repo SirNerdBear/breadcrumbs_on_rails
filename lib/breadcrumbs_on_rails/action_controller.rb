@@ -13,8 +13,8 @@ module BreadcrumbsOnRails
 
     included do |base|
       extend          ClassMethods
-      extend          HelperMethods
-      helper_method   :add_breadcrumb, :breadcrumbs, :render_breadcrumbs
+      base.helper          HelperMethods
+      base.helper_method   :add_breadcrumb, :breadcrumbs, :render_breadcrumbs
 
       unless base.respond_to?(:before_action)
         base.alias_method :before_action, :before_filter
